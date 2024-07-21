@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head> <!-- cabeça do site (onde fica as informaçoes que nao aparecem no site)-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/style.css"> <!--link pro style.css, pra ligar esse html ao style css-->
+    <!--abaixo é o codigo do site pra os icones que eu colocar funcionarem-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Calculadora de IMC</title>
+</head><!--termina a cabeça do site-->
+
+<body>
+    <main id="container"> <!-- tag que diz qual é a parte principal da pag-->
+        <section id="img"> <!--uma das sessoes da parte main da pag, essa sessao id é para imagens (util pra poder acessar a imagem pela id no css ou js depois) -->
+            <img src="assets/imgs/illustration.svg"> <!--caminho para imagem--> <!-- isso faz com que apareça a imagem no site-->
+        </section> <!-- terimna a sessao de img-->
+
+        <section id="calculator"> <!-- COMEÇA A SESSAO DA CALCULADORA -->
+            <form id="form"> <!-- PARTE DO FORMULARIO DA CALCULADORA-->
+                <h1 id="title"> <!-- titulo da calculadora--> <!--(depois posso acessar e estlizar o titulo acessando a id)-->
+                    Calculadora - IMC
+                </h1> <!--fim do titulo da calculadora-->
+
+<!-- label: é como um nome para o campo onde você escreve. Ele ajuda a dizer o que você deve colocar ali 
+como uma etiqueta em um brinquedo que diz o que é. Isso faz com que o campo fique mais fácil de entender e usar. -->
+
+ <!-- div: é como uma caixa que guarda todos os itens importantes, tipo rotulo e um caixa de digitacao,--> 
+
+                <!-- abaixo é a div pra colocar o input-box (caixinha pra digitar) e o input-field (iconezinho da caixinha), no caso, o icone de pesinho)-->
+                <div class="input-box"> <!-- caixinha de digitação para o usuario inserir o peso em kg-->
+                    <label for="weight"> <!-- label é como um nome pro campo onde vc escreve. tipo uma etiqueta para dizer o que voce deve colocar nesse campo  -->
+                        Peso em kg <!-- nome da "etiqueta"-->
+                    </label> <!-- termina o campo de "etiqueta"-->
+                    <div class="input-field"> <!--input field pra colocar iconezinho da caixinha de digitação (o pesinho)-->
+                        <i class="fa-solid fa-weight-hanging"></i> <!-- codigo do icone do pesinho-->
+                        <input type="number" id="weight" name="weight" required> <!-- diz que o tipo do input é numero, a id é weight "peso", 
+                        nome é weight e é obrigatorio pro usuario preencher o campo -->
+                        <span> <!-- span usamos pra digitar algo na mesma linha (vai aparecer logo ao lado da linha onde fica a caixinha de input)-->
+                            Kg
+                        </span><!-- termina span-->
+                    </div><!--termina a div da caixinha de digitacao input box-->
+                </div><!--termina a div de inputfield-->
+
+                <div class="input-box">  <!-- outra div de caixinha para o usuario inserir a altura em metros-->
+                    <label for="height"> <!-- etiqueta de altura-->
+                        Altura em metros <!-- nome da etiqueta-->
+                    </label><!--termina a etiqueta-->
+                    <div class="input-field"> <!---class de input field pra colocar o icon de regua-->
+                        <i class="fa-solid fa-ruler"></i> <!--codigo do icone de regua-->
+                        <input type="number" step="0.01" id="height" name="height" required> <!-- tipo do input é numero. cria um campo para inserir números 
+                        com até duas casas decimais, como a altura. campo obrigatorio  -->
+                        <span>
+                            m <!-- nome que que vai aparecer na mesma linha da caxixinha de input-->
+                        </span>
+                    </div> <!-- acaba a div de input box-->
+                </div><!-- acaba a div de inputfield-->
+                
+                <button id="calculate"> <!-- botao com id chamado calculate-->
+                    Calcular <!--nome que vai aparecer dentro do botao-->
+                </button> <!--acaba o botao-->
+            </form>  <!--ACABA O FORMULARIO-->
+
+            <div id="infos" class="hidden"> <!--- Cria uma div com o id "infos" e a classe "hidden". A classe "hidden" será usada para ocultar essa parte do conteúdo até que o usuário clique em algo para exibi-la -->
+                <div id="result"><!-- Cria uma div com o id "result", que será usada para conter o resultado do cálculo do IMC (Índice de Massa Corporal) -->
+                    <div id="bmi"><!-- Cria uma div com o id "bmi", que agrupa os elementos relacionados ao IMC -->
+                        <span id="value"></span>
+                        <span>Seu IMC</span><!-- Cria um span que contém o texto "Seu IMC" para descrever o valor exibido no span anterior -->
+                    </div>
+                    <div id="description"><!-- Cria uma div com o id "description", que será usada para conter a descrição do resultado do IMC -->
+                        <span></span>
+                    </div>  
+                </div>
+
+                <div id="more_info"> <!-- id more_infos que é pra colocar o link e alterar coisas relacionadas a essa parte-->
+                    <a href="https://mundoeducacao.uol.com.br/saude-bem-estar/imc.htm">
+                        Mais informações sobre o IMC <!-- texto do link-->
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> <!--icone que fica do lado do texto do link-->
+                    </a>
+                </div>
+            </div>   
+        </section> <!--ACABA A SESSASO DA CALCULADORA-->
+
+        
+    </main>
+    <script src="assets/js/script.js"></script> <!--caminho para o javascript-->
+</body>
+</html>

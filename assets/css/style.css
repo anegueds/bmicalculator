@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap'); /* link da fonte que usei no site*/
+
+* {
+    font-family: 'Poppins', sans-serif; /*fonte padrao da pagina */
+    margin: 0; /*Remove a margem padrão de todos os elementos*/
+    padding: 0; /*Remove a preenchimento padrão de todos os elementos*/
+    box-sizing: border-box; /* Inclui bordas e preenchimento nas dimensões totais dos elementos*/
+}
+
+body { /* corpo da pagina ( sem essa parte a pagina fica sem cor, estrutura etc, fica só os elementos jogadas de qualquer jeito*/ 
+    display: flex; /* display flex pra depois eu alterar e colocar tudo centralizado (sem essa parte a pagina fica decentralizada */
+    align-items: center; /* alinha os itens no centro da pagina */
+    justify-content: center; /*alinha tudo no centro da pagina */
+    width: 100%; /* define a largura do corpo da página como 100% da largura da janela do navegador */
+    height: 100vh;/* define a altura do corpo da página como 100% da altura da janela do navegador */
+    background-color: #18181b; /*cor do fundo da pagina */
+}
+
+#container { /* seleciona o elemento com o id "container" */
+    display: flex; /* aplica o display flex para permitir a distribuição flexível dos itens filhos (os itens que ficam dentro da caixa da calculadora, que é o item pai */
+    align-items: center; /* alinha os itens filhos (os itens filhos sao todo o conteudo dentro da calculadora) verticalmente ao centro do container */
+    gap: 3.5rem; /* define um espaçamento de 3.5rem entre os itens filhos */
+}
+
+#img img {
+    width: 31rem; /*tamanho da imagem */
+}
+
+#calculator {/*seleciona o elemento com id calculator criado no html*/
+    /*essa parte serve para alterar o formato, lagura cor do titulo da calculadora, centralizar. */ 
+    display: flex;
+    flex-direction: column; /* deixa a direcao do flex em colunas */
+    gap: 2rem; 
+    padding: 2rem;/* deixa um espaço entre os elementos e as bordas da calculadora*/
+    color: #f8fafc;/* cor do titulo calculadora imc*/
+    background-color: #262626; /*fundo da calculadora*/
+    border-radius: 8px; /*deixa a borda da calculadora um pouco mais arredondada*/
+}
+
+#form { /* parte que altera a distancia entre as caixas de input, o texto acima delas e o botao calcular e e coloca em coluna*/
+    display: flex; 
+    flex-direction: column; /*direção do flex pra coluna*/
+    gap: 2rem; /* distancia os elementos input box, texto e botao calcular*/
+}
+
+#title {/*altera o titulo da calculadora*/
+    font-size: 2.25rem; /*tamanho da fonte o texto calculadora - imc*/
+    position: relative; /*posição do titulo*/
+}
+
+#title::after { /* para criar a linhazinha verde que fica logo abaixo ao titulo calculadora imc*/
+    /*title::after é para mexer na parte bem abaxido do titulo*/
+   position: absolute;/* posição da bordinha*/
+    content: ''; /*conteudo da bordinha*/
+    width: 8rem; /* define a largura da linha */
+    height: 3px; /*altura da bordinha*/
+    border-radius: 3px;/* arredonda os cantos da linha */
+    background-color: #16a34a;/*cor da bordinha*/
+    bottom: 0;/* posiciona a linha na parte inferior do elemento pai (o titulo calculadora imc*/
+    left: 0;/* alinha a linha à esquerda do elemento pai (o titulo calculadora imc*/
+}
+
+/* Estiliza os rótulos dos campos de entrada: */
+.input-box label {/*pega o id input-box criado no html e coloca na class label (label é tipo etiqueta */
+    font-weight: 500; /*Define a espessura da fonte*/
+    font-size: 1.1rem;/*tamanho da fonte dos rótulos*/
+    color: #cbd5e1; /*cor da fonte*/
+}
+
+/* Estiliza os campos de entrada (input) */
+.input-field { 
+    display: flex; /*flex pra organizar o conteúdo dentro do campo de entrada  */
+    align-items: center; /*Alinha os itens verticalmente ao centro */
+    justify-content: space-between; /* Espaça os itens de forma igual dentro do campo de entrada */
+    background-color: #3f3f46;/* Define a cor de fundo do campo de entrada inputbox */
+    padding: 0.3rem;/* Adiciona um preenchimento interno de 0.3rem ao redor do conteúdo */
+    border-radius: 3px; /* Arredonda os cantos do campo de entrada input*/
+    margin-top: 3px; /* Adiciona uma margem superior de 3px */
+}
+
+/* Estiliza os ícones dentro do campo de entrada */
+.input-field i  {/* parte que edita o iconezinho dentro da input box*/
+    color: #cbd5e1;/* Define a cor dos ícones */
+    font-size: 1.3rem; /* Define o tamanho da fonte dos ícones */
+    padding: 0.6rem 1rem;/* Adiciona um preenchimento interno de 0.6rem em cima e embaixo, e 1rem nas laterais */
+}
+
+/* Adiciona padding específico para os spans dentro das input fields */
+.input-field span {
+    padding-left: 0.5rem; /* Adiciona um padding à esquerda */
+    padding-right: 0.5rem; /* Adiciona um padding à direita */
+}
+
+
+/* Estiliza o campo de entrada de texto (o input) */
+.input-field input {
+    background-color: transparent;/* Define o fundo do campo de entrada como transparente */
+    border: none; /*remove a borda feia do campo de entrada*/
+    width: 100%;/* define a largura do campo de entrada como 100% do conteiner pai*/
+    font-size: 1.3rem; /*defin e o tamanho da fonte do texto do campo de entrada*/
+    color: #f8fafc; /*define  a cor do texto do campo de entrada*/
+    padding: 0 0.5rem; /* adiciona o preenchimento interno de 0.5rem nas laterais*/
+}
+
+/* Remove as setas de incremento e decremento dos campos numéricos */
+.input-field input::-webkit-outer-spin-button,
+.input-field input::-webkit-inner-spin-button {
+  appearance: none; /* Remove a aparência padrão das setas */
+}
+ 
+/* Remove o contorno estranho que ficava quando o usuario clicava na no campo de entrada */
+.input-field input:focus {
+    outline: none; /*deixa sem contorno esse campo de entrada*/
+}
+
+/* Estiliza o botão de calcular */
+#calculate {
+    border: none; /*remove a borda do botao*/
+    font-size: 1.25rem; /*define o tamanho da fonte do texto do botao*/
+    font-weight: bold; /*define a expressura do texto */
+    color: #f8fafc; /*define a cor do texto*/
+    background-color: #16a34a; /*define a cor do fundo do botao*/
+    padding: 0.5rem 0; /*adciona o preechimento interno em cima e embaixo de 0.5rem*/
+    border-radius: 3px; /*arredonda os cantos do botao*/
+    cursor: pointer; /*altera o cursor do mouse para um ponteiro ao passar sobre o botao*/
+    width: 100%; /*define a lagura do botao como 100% do conteiner pai*/
+}
+
+/* Estiliza a área de resultado da calculadora */
+#result {
+    display: flex; /*layout flex para orgnizar os elementos dentro da area do resultado */
+    gap: 2rem; /*define um espaçamento de 2rem entre os elementos*/
+    align-items: center; /*alinha os itens verticalmente ao centro*/
+    border-top: 1px solid #ffffff34; /*adicona uma borda (aquela linha cinza) acima do resultado*/
+    padding: 0.75rem 0;/* adicona o preeenchimento inteiro de 0.75rem em cima e emabixo*/
+}
+
+/* Estiliza o bloco de IMC*/
+#bmi {
+    display: flex;/*layout flex */
+    align-items: center;/*centraliza os intens verticlamente*/
+    flex-direction: column; /*organiza os itens em colunas*/
+    font-size: 2.25rem; /*define o tamanho da fonte do texto no bloco imc*/
+}
+
+/* Estiliza o texto adicional no bloco de IMC */
+#bmi span:last-child { 
+    font-size: 0.875rem;/*define o tamanho da fonte do texto adiconal */
+    color:#cbd5e1; /*DEFINE A COR DO TEXTO */
+}
+
+/* Estiliza a descrição do resultado */
+.normal {
+    color: #16a34a;/* Define a cor do texto para resultados normais */
+}
+
+.attention {
+    color: #dc2626;/* Define a cor do texto para resultados que exigem atenção */
+}
+
+/* Estiliza a descrição adicional */
+#description{
+   width: 15.5rem; /* Define a largura da descrição adicional */
+}
+
+#more_info {
+    text-align: center;/* Centraliza o texto na seção de mais informações */
+    border-top: 1px solid #ffffff34; /* Adiciona uma borda superior à seção de mais informações */
+    padding-top: 1.5rem; /* Adiciona um preenchimento interno de 1.5rem em cima */
+}
+
+#more_info a {
+    display: flex; /*layout flex pra organizar o conteudo do link */
+    justify-content: center; /*centraliza o conteudo horizontalmente ao centro d olink */
+    align-items: center; /* centraliza o conteudo verticalmente dentro do link*/
+    gap: 0.6rem; /*define o espacamento de 0.6rem entre os itens dentro do link*/
+    color: #16a34a; /*define a cor do texto do link */
+    font-size: 0.875rem; /*define o tamanho da fonte*/
+    text-decoration: none; /*remove o sublinhado padrao dos links*/
+    transition: color 0.5s; /*adiciona um transficao suave de 0.5s na cor do link ao passar o mouse*/
+}
+
+/* Estiliza o estado do link ao passar o mouse sobre ele */
+#more_info a:hover {
+    color: #cbd5e1; /* Altera a cor do texto do link quando o mouse está sobre ele */
+}
+
+/*deixando responsivo:*/
+
+/* Regras para telas com largura máxima de 1024 pixels */
+@media screen and (max-width: 1024px) {
+    #img {
+        display: none;  /* Oculta a imagem para telas menores que 1024px */
+    }
+}
+
+/* Regras para telas com largura máxima de 500 pixels */
+@media screen and (max-width: 500px) {
+    #img {
+        display: none;/* Garante que a imagem continue oculta para telas menores que 500px */
+    }
+
+    #container {
+        width: 100%; /* Define a largura do container como 100% da largura da janela do navegador */
+        height: 100%;
+    }
+
+    #calculator {
+        width: 100%;/* Define a largura da calculadora como 100% do container */
+        height: 100%;/* Define a altura da calculadora como 100% do container */
+        border-radius: 0;/* Remove o arredondamento dos cantos da calculadora para melhor ajuste em telas pequenas */
+        justify-content: center;/* Garante que o conteúdo da calculadora esteja centralizado horizontalmente */
+    }
+}
+      
+
+.hidden{
+    display: none;
+}
